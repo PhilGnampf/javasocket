@@ -36,23 +36,16 @@ public class RPSGameHandler implements Runnable {
                 String clientChoice = in.readLine();
                 System.out.println("Client choice: " + clientChoice);
 
-                // If clientChoice is null, end the game
-                if (clientChoice == null) {
-                    break;
-                }
-
                 // Determine the winner and send the result back to the client
                 String result = determineWinner(clientChoice, serverChoice);
                 out.println(result);
             }
 
-            // Send final result after game ends
+            // Log final result after game ends
             if (clientWins >= 3) {
                 out.println("You win the best of 5!");
-            } else if (serverWins >= 3) {
-                out.println("You lose the best of 5!");
             } else {
-                out.println("It's a tie in the best of 5!");
+                out.println("You lose the best of 5!");
             }
 
             // Close the socket
