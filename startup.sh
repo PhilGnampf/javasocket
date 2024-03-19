@@ -7,8 +7,8 @@ fi
 docker build -t rpsserver server
 docker build -t rpsclient client
 
-# Check if the server container is running, if so, stop and remove it
-if [ -n "$(docker ps --filter name=rps_server_container -q)" ]; then
+# Check if the server container exists, if so, stop and remove it
+if [ -n "$(docker ps --filter name=rps_server_container -a -q)" ]; then
     docker stop rps_server_container
     docker rm rps_server_container
 fi
@@ -16,8 +16,8 @@ fi
 # Run the server container
 docker run -d --network rps_network --name rps_server_container -p 8888:8888 rpsserver
 
-# Check if the client container is running, if so, stop and remove it
-if [ -n "$(docker ps --filter name=rps_client_container -q)" ]; then
+# Check if the client container exists, if so, stop and remove it
+if [ -n "$(docker ps --filter name=rps_client_container -a -q)" ]; then
     docker stop rps_client_container
     docker rm rps_client_container
 fi
