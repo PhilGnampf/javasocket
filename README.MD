@@ -6,9 +6,11 @@ Working Docker Engine installation needed!
 # initializes network, images and containers
 # existing containers will be rebuild
 .\startup.ps1
+. startup.sh
 
 # cleans network, images and containers
 .\cleanup.ps1
+. cleanup.sh
 ```
 
 ## Manual Setup 
@@ -42,3 +44,5 @@ docker run -it --network rps_network --name rps_client_container rpsclient
 IP:     rps_server_container
 Port:   8888
 ```
+
+![Diagram](ServerSocketJava.drawio.svg)
